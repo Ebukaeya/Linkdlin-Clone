@@ -17,6 +17,7 @@ const MainPage = () =>{
                             <div className="left">
                             {/* all components on the left */}
                             <Profile />
+                           
                             
                             </div>
                             <div className="right">
