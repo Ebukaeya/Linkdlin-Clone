@@ -1,5 +1,7 @@
+
 import "../styles/mainPage.css"
 import Profile from "./Profile"
+import MyFooter from "./MyFooter";
 
 
 const MainPage = () =>{
@@ -21,6 +23,7 @@ const MainPage = () =>{
                                 {/* all components on the left */}
                             </div>
                         </div>
+<MyFooter />
                 </div>
         </>
     )
@@ -29,3 +32,4 @@ const MainPage = () =>{
 
 
 export default MainPage
+
