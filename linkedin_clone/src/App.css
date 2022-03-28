@@ -38,4 +38,42 @@
 }
  */
 
+.footer-text {
+  font-size: 0.8rem;
+}
 
+.footer-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.footer-icon2 {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.2rem;
+}
+.select1 {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+#language {
+  width: 100%;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.corporate {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.footer-right {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.footer-right1 {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
