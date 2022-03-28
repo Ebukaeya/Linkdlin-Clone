@@ -4,6 +4,9 @@ import Profile from "./Profile"
 import MyFooter from "./MyFooter";
 
 
+
+
+
 const MainPage = () =>{
 
 
@@ -16,6 +19,7 @@ const MainPage = () =>{
                         <div className="wrapperFlex">
                             <div className="left">
                             {/* all components on the left */}
+                         
                             <Profile />
                            
                             
@@ -24,7 +28,7 @@ const MainPage = () =>{
                                 {/* all components on the left */}
                             </div>
                         </div>
-<MyFooter />
+                  <MyFooter />
                 </div>
         </>
     )
