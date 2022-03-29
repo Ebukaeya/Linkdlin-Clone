@@ -1,4 +1,4 @@
-import "../styles/Narbar.css"
+import "../styles/Narbar.css";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
 const MyNavbar = () => {
@@ -16,7 +16,7 @@ const MyNavbar = () => {
                 width="15"
                 height="15"
                 fill="black"
-                class="bi bi-search"
+                className="bi bi-search"
                 viewBox="0 0 16 16"
                 style={{ marginBottom: "10px" }}
               >
@@ -49,7 +49,7 @@ const MyNavbar = () => {
               width="24"
               height="24"
               fill=" rgb(104, 95, 95)"
-              class="bi bi-person-lines-fill"
+              className="bi bi-person-lines-fill"
               viewBox="0 0 16 16"
             >
               <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />

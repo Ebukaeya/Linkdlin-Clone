@@ -77,3 +77,42 @@
   font-size: 0.8rem;
   font-weight: 300;
 }
+
+.side-edit-bar {
+  border-radius: 10px;
+  background-color: white;
+  color: rgb(114, 110, 110);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sidebar-image1 {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+}
+
+.sidebar-title {
+  font-size: 13px;
+  color: grey;
+}
+
+.Gbemi-container {
+  border-radius: 10px;
+  background-color: white;
+  padding-left: 15px;
+}
+
+.sidebar-button1 {
+  border-radius: 18px !important;
+  margin-bottom: 15px;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.sidebar-name {
+  font-size: "0.9rem";
+  font-weight: 500;
+  margin-bottom: 0;
+}
