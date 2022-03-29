@@ -1,0 +1,65 @@
+form{
+    width: 100%;
+}
+
+.backgroundDiv{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0,0.4);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formDivWrapperEdit{
+    height: 75vh;
+    width: 35vw;
+    background-color: white;
+    border-radius: 2%;
+    padding: 25px;
+}
+.formDivWrapperEdit>div{
+    display: flex;
+    justify-content: space-between;
+}
+.editFormDiv{
+    margin-top: 30px;
+}
+.horizontalLine{
+    height: 1px;
+    width: 100%;
+    background-color: rgb(209, 209, 209);
+    margin-top: 15px;
+}
+.formInputFieldandLabel{
+    margin-bottom: 20px;
+    width: 100%;
+    
+}
+.formInputFieldandLabel>input{
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 6px;
+   
+}
+
+.formFooter{
+    margin-top: 5rem;
+}
+.divButtonForm{
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
+}
+.divButtonForm>button{
+    border: none;
+    color: white;
+    background-color: #0a66c2;
+    width: 60px;
+    height: 35px;
+    border-radius: 25px;
+}
