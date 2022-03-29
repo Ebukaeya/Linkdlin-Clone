@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-const EditForm = ({controlDisplay,data}) => {
+const EditForm = ({controlDisplay,data,dataUpdat}) => {
 
 /* props are received and used to fill in the initial form value and the the state */
     
@@ -18,11 +18,21 @@ const [formValue, setFormValue] = useState({
 
 
 
-const handleEdit = ()=>{
+const handleEdit = async (e)=>{
+    e.preventDefault()
     /* disstructuring the state which holds the finally value of the form */
+dataUpdat(formValue)
+controlDisplay(false)
 let {name, surname, email, bio, title, area} = formValue
 
 /* make a put request using tje values of the state */
+/* try {
+    let res = await fetch()
+    
+} catch (error) {
+    
+} */
+
 
 }
 
@@ -54,14 +64,14 @@ const closeDisplay = ()=>{
           </div>
           <div className="horizontalLine"></div>
           <div className="editFormDiv">
-            <form onSubmit={handleEdit()}>
+            <form onSubmit={e => handleEdit(e) }>
               <div className="formInputFieldandLabel">
                 <p>Name</p>
-                <input  type={"text"} name={"name"}  value={data.name} onChange={ e => setFormValue({...formValue,name:e.target.value}) } />
+                <input  type={"text"} name={"name"}  value={formValue.name} onChange={ e => setFormValue({...formValue,name:e.target.value}) } />
               </div>
               <div className="formInputFieldandLabel">
                 <p>Surname</p>
-                <input type={"text"} name={"surname"}  value={data.surname} onChange={ e => setFormValue({...formValue,value:e.target.value}) }/>
+                <input type={"text"} name={"surname"}  value={formValue.surname} onChange={ e => setFormValue({...formValue,value:e.target.value}) }/>
               </div>
               <div className="formInputFieldandLabel" >
                 <p>Email</p>
@@ -69,15 +79,15 @@ const closeDisplay = ()=>{
               </div>
               <div className="formInputFieldandLabel" >
                 <p>Bio</p>
-                <input type={"text"} name={"bio"} value={data.bio} onChange={ e => setFormValue({...formValue,bio:e.target.value}) }/>
+                <input type={"text"} name={"bio"} value={formValue.bio} onChange={ e => setFormValue({...formValue,bio:e.target.value}) }/>
               </div>
               <div className="formInputFieldandLabel">
                 <p>Title</p>
-                <input type={"text"} name={"title"} value={data.title} onChange={ e => setFormValue({...formValue,title:e.target.value}) }/>
+                <input type={"text"} name={"title"} value={formValue.title} onChange={ e => setFormValue({...formValue,title:e.target.value}) }/>
               </div>
               <div className="formInputFieldandLabel">
                 <p>Area</p>
-                <input type={"text"} name={"area"} value={data.area} onChange={ e => setFormValue({...formValue,area:e.target.value}) }/>
+                <input type={"text"} name={"area"} value={formValue.area} onChange={ e => setFormValue({...formValue,area:e.target.value}) }/>
               </div>
 
               <div className="formFooter">
