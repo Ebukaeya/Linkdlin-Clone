@@ -1,11 +1,13 @@
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Navigate, useNavigate } from "react-router-dom";
 const { useState } = require("react");
 
-const LoginPage = () => {
+const LoginPage = ({ functionData }) => {
   const [info, setInfo] = useState({
     username: "",
     email: "",
   });
+  const Navigate = useNavigate();
 
   const fetchResult = async (username) => {
     try {
@@ -22,7 +24,9 @@ const LoginPage = () => {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
+        functionData(data);
         alert("success!");
+        Navigate("/profile");
       } else {
         alert("something went wrong!!!");
       }
@@ -30,8 +34,9 @@ const LoginPage = () => {
       console.log(error);
     }
   };
-  const submitFetch = () => {
-    return fetchResult();
+  const submitFetch = (e) => {
+    e.preventDefault();
+    fetchResult();
   };
 
   return (

@@ -5,13 +5,12 @@ import MyFooter from "./MyFooter";
 import EditForm from "./EditForm";
 import { useState } from "react";
 
-const MainPage = () => {
+const MainPage = (props) => {
+  const [displayForm, setDisplayForm] = useState(false);
 
-const [displayForm, setDisplayForm] = useState(false)
-
-const handleDisplayForm = (display)=>{
- setDisplayForm(display)
-}
+  const handleDisplayForm = (display) => {
+    setDisplayForm(display);
+  };
   return (
     <>
       <div className="mainContainer">
@@ -19,12 +18,14 @@ const handleDisplayForm = (display)=>{
           <div className="left">
             {/* all components on the left */}
 
-            <Profile controlDisplay={handleDisplayForm}/>
+            <Profile controlDisplay={handleDisplayForm} data={props.data} />
           </div>
           <div className="right">{/* all components on the left */}</div>
         </div>
         <MyFooter />
-       { displayForm && <EditForm  controlDisplay={handleDisplayForm} data={""}/>}
+        {displayForm && (
+          <EditForm controlDisplay={handleDisplayForm} data={props.data} />
+        )}
       </div>
     </>
   );
