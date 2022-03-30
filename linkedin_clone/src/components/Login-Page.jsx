@@ -23,7 +23,7 @@ const LoginPage = ({ functionData }) => {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
-        functionData({...data,token:token});
+        functionData({ ...data, token: token });
         alert("success!");
         Navigate("/profile");
       } else {
@@ -46,7 +46,7 @@ const LoginPage = ({ functionData }) => {
           justifyContent: "center",
           alignItems: "center",
           height: "10vh",
-          marginTop:"8vh"
+          marginTop: "8vh",
         }}
       >
         {" "}
