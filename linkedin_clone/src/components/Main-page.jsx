@@ -18,7 +18,8 @@ const MainPage = (props) => {
 
   const updatData = (data) => {
     console.log(data);
-    setData({...props.data, name:data.name,surname:data.surname});
+    setData({...props.data, name:data.name,surname:data.surname,email:data.email,title:data.title, bio:data.bio, area:data.area});
+    
   };
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const MainPage = (props) => {
         {displayForm && (
           <EditForm
             controlDisplay={handleDisplayForm}
-            data={props.data}
+            data={data ? data : props.data}
             dataUpdat={updatData}
           />
         )}

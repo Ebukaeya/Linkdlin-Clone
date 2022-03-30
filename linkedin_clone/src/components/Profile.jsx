@@ -59,7 +59,7 @@ const Profile = ({ controlDisplay, data }) => {
           <div className="proflieContent">
             <div>
               <p>
-                {data.name} {data.surname}
+                {data.name+" "}  {data.surname}
               </p>
               <p>{data.title}</p>
               <div className="location">

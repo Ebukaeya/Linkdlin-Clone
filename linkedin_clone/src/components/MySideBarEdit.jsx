@@ -5,7 +5,7 @@ const MySidebarEdit = () => {
   return (
     <Container>
       <Row>
-        <div className="side-edit-bar px-2 border">
+        <div className="side-edit-bar px-2 border w-100">
           <p className="py-3  border-bottom d-flex justify-content-between">
             Edit public Profile & Url
             <BsQuestionCircleFill />
