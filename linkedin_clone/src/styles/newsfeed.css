@@ -1,0 +1,366 @@
+
+.leftNewsFeed{
+    display: flex;
+    gap: 20px;
+}
+hr{
+    margin: 0;
+}
+
+.newsfeedSection{
+    width: 65%;
+    background-color: inherit;
+    
+}
+.leftSideBar{
+    background-color: aqua;
+    width: 35%;
+    border-radius: 10px 10px ;
+}
+.newsfeedSection>div:first-of-type{
+    width: 100%;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px 10px ;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 10px 15px 15px 15px;
+}
+
+.postWrapperDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.postWrapperDiv>div:first-of-type{
+    display: flex;
+    gap: 8px;
+    height: 55%;
+}
+
+
+.postWrapperDiv>div:first-of-type>div:first-of-type{
+    width: 11%;
+    height: 100%;
+    background-color: aliceblue;
+    
+}
+.postWrapperDiv>div:first-of-type>div:first-of-type>img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.postWrapperDiv>div:first-of-type>div:last-of-type{
+    width: 85%;
+
+}
+.postWrapperDiv>div:first-of-type>div:last-of-type>div{
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    border: 1px solid rgb(204, 203, 203);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: rgb(151, 150, 150);
+}
+
+.postWrapperDiv>div:last-of-type{
+    display: flex;
+    justify-content: space-between;
+}
+.postWrapperDiv>div:last-of-type>div{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+/* .postWrapperDiv>div:last-of-type>div>svg{
+    color: #70B5F9;
+} */
+.postWrapperDiv>div:last-of-type>div>p{
+    color: rgb(112, 112, 112);
+}
+
+.horizontalDivNewsfeedwrapper{
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    align-items: center;
+    gap: 6px;
+}
+.horizontalDivNewsfeedwrapper>div:first-of-type{
+    height: 1px;
+    width: 80%;
+    background-color: rgb(190, 190, 190);
+}
+.horizontalDivNewsfeedwrapper>div:first-of-type+span{
+    font-size: 12px;
+    color: gray;
+}
+.horizontalDivNewsfeedwrapper>div:first-of-type+span+span{
+    font-size: 12px;
+}
+
+/* postd component */
+
+.postWrapperDivnewsfeed{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px 10px ;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 10px 15px 15px 15px;
+    margin-bottom: 13px;
+}
+.postWrapperDivnewsfeed>div:first-of-type{
+
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    height: 50px;
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:first-of-type{
+width: 11%;
+height: 100%;
+background-color: bisque;
+border-radius: 100%;
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:first-of-type>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(2){
+  
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(2)>p:first-of-type{
+font-weight: 500;
+font-size: 1rem;
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(2)>p:first-of-type+p{
+    font-size: 11px;
+    color: gray;
+    font-weight: 500;
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(2)>p:first-of-type+p+p{
+    font-size: 11px;
+    color: gray;
+    font-weight: 500;
+}
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(2)>p:first-of-type+p+p>span{
+    margin-right: 4px;
+}
+
+
+.postWrapperDivnewsfeed>div:first-of-type>div:nth-child(3){
+    
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.postText{
+    margin-top: 14px;
+    color: rgb(65, 64, 64);
+}
+
+.imgDivPostImage{
+    width: 100%;
+    height: 35vh;
+    background-color: aqua;
+    margin-top: 10px;
+   
+}
+.imgDivPostImage>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.deleteEditPost{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap: 6px;
+}
+.deleteEditPost>button{
+    border: 0px;
+    border-radius: 6px;
+    color: white;
+}
+.deleteEditPost>button:first-of-type{
+    width: 50%;
+    background-color: rgb(20, 189, 152);
+
+}
+.deleteEditPost>button:last-of-type{
+    background-color: red;
+    width: 20%;
+
+}
+
+/* post commet */
+
+.BackgroundPostDiv{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createPostDiv{
+    min-height: 42vh;
+    width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    transform: translateY(-11vh);
+}
+
+.createPostDiv>div{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 25px;
+}
+.createPostDiv>div>p{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+div.profilePictureCreatePost{
+    justify-content: flex-start ;
+    height: 90px;
+    gap: 10px;
+    
+}
+
+.profileImageCreate{
+width: 9%;
+height: 100%;
+background-color: rgb(90, 92, 94);
+border-radius: 100%;
+border: 1px solid rgb(196, 194, 194);
+
+}
+
+
+.profileImageCreate>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.profileImageCreate+div>p:first-of-type{
+font-weight: 500;
+}
+
+.profileImageCreate+div>p:first-of-type+div{
+    width: 100px;
+    height: 55%;
+    border-radius: 30px;
+    border: 1px solid rgb(160, 160, 160);
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 550;
+    color: gray;
+}
+
+.profileImageCreate+div>p:first-of-type+div>svg:last-of-type{
+    padding-top: 2px;
+}
+
+div.textAreaCreatePost{
+    margin-top: -10px;
+padding-top: 0px;
+}
+div.textAreaCreatePost>textarea{
+width: 100%;
+overflow: hidden;
+padding: 15px;
+border: 0px;
+min-height: 120px;
+}
+div.textAreaCreatePost>textarea:focus{
+    border: 0px;
+    outline: 0px;
+}
+
+div.whoCanSeeYourPost{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.whoCanSeeYourPost>div{
+width: 60%;
+height: 100%;
+background-color: #eef3f8;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+font-weight: 500;
+border-radius: 8px;
+}
+
+div.postButtondiv{
+    margin-top: 4px;
+padding-top: 1px;
+padding-bottom: 6px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 50px;
+
+}
+
+div.postButtondiv>div:first-of-type{
+    display: flex;
+    gap: 20px;
+}
+div.postButtondiv>div:first-of-type>input{
+    font-size: 12px;
+}
+.enabledbutton{
+    width: 66px;
+    border-radius: 30px;
+    border: 0px;
+    height: 35px;
+    color: white;
+    font-weight: 500;
+    background-color: #0a66c2;
+}
+
+.disableButton{
+    color: gray;
+    background-color: rgb(187, 187, 187);
+    width: 66px;
+    border-radius: 30px;
+    border: 0px;
+    height: 35px;
+    font-weight: 500;
+    pointer-events: none;
+    
+}

@@ -22,9 +22,9 @@ const MySideBarList = () => {
         }
       );
       if (response.ok) {
-        console.log(response);
+        
         let data = await response.json();
-        console.log(data);
+        
 
         for (let i = 0; i < 5; i++) {
           let x = Math.floor(Math.random() * 100);
