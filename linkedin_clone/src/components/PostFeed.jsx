@@ -1,32 +1,58 @@
-import {useState} from "react"
+import { useState } from "react";
 
-const PostFeed = ({closeDisplay, data}) => {
-
-   
-
-const [post,setPost] = useState({
-        text:"",
-        img:""
-})
-
-const [enablePostButton,setEnablePostButton] = useState(false)
+const PostFeed = ({ closeDisplay, data }) => {
+  const [post, setPost] = useState({
+    text: "",
+  });
 
 
 
-const handlePostSubmit = async()=>{
+  const [file, setFile] = useState(null);
 
+  const [enablePostButton, setEnablePostButton] = useState(false);
+
+  const handlePostSubmit = async () => {
     let formData = new FormData();
-    formData.append("text", post.text)
-    formData.append("post", post.img)
+
+    formData.append("post", file);
 
     try {
-        let response = await fetch()
-        
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/",
+        {
+          method: "POST",
+          body: JSON.stringify(post),
+          headers: {
+            Authorization:
+              "Bearer " + data.token,
+            "Content-type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        alert("post is created");
+        const data = await response.json();
+        const newPostID = data._id;
+        if (newPostID) {
+          const respFromImgUpload = await fetch(
+            "https://striveschool-api.herokuapp.com/api/posts/" + newPostID,
+            {
+              body: formData,
+              headers: {
+                Authorization:
+                "Bearer " + data.token,              },
+              method: "POST",
+            }
+          );
+          if (respFromImgUpload.ok) {
+            alert("Image uploaded");
+          }
+        }
+      }
     } catch (error) {
-        
+      console.log(error);
     }
-}
-
+  };
 
   return (
     <>
@@ -41,7 +67,9 @@ const handlePostSubmit = async()=>{
               fill="currentColor"
               class="bi bi-x"
               viewBox="0 0 16 16"
-               onClick={()=>{closeDisplay(false)}}
+              onClick={() => {
+                closeDisplay(false);
+              }}
             >
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
@@ -51,8 +79,7 @@ const handlePostSubmit = async()=>{
 
           <div className="profilePictureCreatePost">
             <div className="profileImageCreate">
-              <img src= {data.image} alt={"img"}
-              />
+              <img src={data.image} alt={"img"} />
             </div>
             <div>
               <p>{data.name}</p>
@@ -83,15 +110,18 @@ const handlePostSubmit = async()=>{
           </div>
 
           <div className="textAreaCreatePost">
-            <textarea value={post.text}
+            <textarea
+              value={post.text}
               autoFocus
               placeholder="What do you want to talk about?"
               onInput={(e) => {
-                
                 e.target.style.height = "auto";
                 e.target.style.height = e.target.scrollHeight + "px";
               }}
-              onChange={e=>{setPost({...post,text:e.target.value}); setEnablePostButton(true)}}
+              onChange={(e) => {
+                setPost({ ...post, text: e.target.value });
+                setEnablePostButton(true);
+              }}
             ></textarea>
           </div>
 
@@ -115,11 +145,20 @@ const handlePostSubmit = async()=>{
                 <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
               </svg> */}
 
-              <input value={post.img} onChange={e=> setPost({...post,img:e.target.value})} type="file"/>
-              
+              <input onChange={(e) => setFile(e.target.files[0])} type="file" />
             </div>
             <div>
-              <button onClick={handlePostSubmit()} className={ enablePostButton && post.text? "enabledbutton":"disableButton"} > Post</button>
+              <button
+                onClick={handlePostSubmit}
+                className={
+                  enablePostButton && post.text
+                    ? "enabledbutton"
+                    : "disableButton"
+                }
+              >
+                {" "}
+                Post
+              </button>
             </div>
           </div>
         </div>

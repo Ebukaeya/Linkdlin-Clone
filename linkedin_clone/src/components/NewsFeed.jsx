@@ -32,7 +32,7 @@ const NewsFeed = ({ data }) => {
 
       if (response.ok) {
         let post = await response.json();
-        /* console.log(post) */
+        
         setPost(post);
       } else {
         alert("You need to login with your token. Click ok to proceed");
@@ -140,14 +140,11 @@ const NewsFeed = ({ data }) => {
                 </svg>
               </div>
 
-              <Posts  name={data.name} title={data.title} />
-              {posts &&
-                posts.slice(0,10).map((post) =>
+              {/* <Posts  name={data.name} title={data.title} /> */}
+              {posts && posts.filter(post=>post.image)
+                .slice(0,10).map((post) =>
                 <Posts
-                    key={post._id}
-                    data={post.text}
-                    name={data.name}
-                    title={data.title}
+                    data={post}
                   />
                  )}
             </div>
