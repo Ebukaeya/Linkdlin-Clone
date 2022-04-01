@@ -1,4 +1,5 @@
 import { Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const MySideBarCard = ({ profiles }) => {
   return (
@@ -19,9 +20,15 @@ const MySideBarCard = ({ profiles }) => {
           {profiles.name} {""} {profiles.surname}
         </h6>
         <p className="mb-1 sidebar-title">{profiles.title}</p>
-        <Button className="sidebar-button1 py-1" variant="outline-secondary">
-          Connect
-        </Button>
+        <Link to={"/profile/" + profiles._id}>
+          <div
+            className="sidebar-button1 py-1 border w-50 pl-2"
+            variant="outline-secondary"
+            style={{ cursor: "pointer" }}
+          >
+            Connect
+          </div>
+        </Link>
       </Col>
     </Row>
   );

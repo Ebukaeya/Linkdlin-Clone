@@ -27,6 +27,8 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path="/profile" element={<MainPage data={data} imgaeUpdat={updatImage} />} />
+          <Route path="/profile/:id" element={<MainPage data={data} />} />
+          {/* <Route path="/profile/" element={<MainPage data={data} />} /> */}
           <Route path="/" element={<LoginPage functionData={updateData} />} />
           <Route   path="/newsfeed"      element={<NewsFeed data={data}/>} />
           <Route   path="*"      element={<div>404</div>} />
