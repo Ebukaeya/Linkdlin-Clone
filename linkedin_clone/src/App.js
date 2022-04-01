@@ -19,7 +19,8 @@ function App() {
       <>
         <MyNavbar />
         <Routes>
-          <Route path="/profile" element={<MainPage data={data} />} />
+          <Route path="/profile/:id" element={<MainPage data={data} />} />
+          <Route path="/profile/" element={<MainPage data={data} />} />
           <Route path="/" element={<LoginPage functionData={updateData} />} />
         </Routes>
 

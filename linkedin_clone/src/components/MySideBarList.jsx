@@ -17,7 +17,7 @@ const MySideBarList = () => {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzAyYTgyZWExZDAwMTViYjA0N2MiLCJpYXQiOjE2NDgwNDcxMzUsImV4cCI6MTY0OTI1NjczNX0.gVAP65Ei526G-45DP5DwQDKNhTy-dcfU8w4n6CC3kn4",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQzMzBhNWRhMTNhZjAwMTUyYzFjNjciLCJpYXQiOjE2NDg1NzA1MzQsImV4cCI6MTY0OTc4MDEzNH0.I9nECqsO8I-yDSTS2Mqpftc9JQc4P94P-LYnYKzT64g",
           },
         }
       );
@@ -43,8 +43,8 @@ const MySideBarList = () => {
   return (
     <div className="Gbemi-container ">
       <h5 className="my-4 py-3">People you may know</h5>
-      {profile.map((data) => (
-        <MySideBarCard profiles={data} key={data._id} />
+      {profile.map((data, i) => (
+        <MySideBarCard profiles={data} key={i} />
       ))}
       <center className="py-2 border-top">
         Show more <MdOutlineKeyboardArrowDown />
