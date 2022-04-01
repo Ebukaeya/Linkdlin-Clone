@@ -84,13 +84,18 @@ const ExperienceList = ({ userId }) => {
   };
 
   return (
+
+
     <>
       <div className="p-3 bg-white mt-3 experienceSectionOuter">
         <h4 className="mr-auto">Experience</h4>
         <div className="mb-4">
-          {experience.map((user) => (
+          {experience.length !== 0 ?experience.map((user) => (
             <SingleExperienceCard data={user} />
-          ))}
+          )): (
+            <div className="noExperienceGy"><p>No work Experience yet</p></div>
+          )
+          }
         </div>
       </div>
     </>
