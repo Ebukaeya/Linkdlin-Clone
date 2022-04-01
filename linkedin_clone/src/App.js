@@ -4,8 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import LoginPage from "./components/Login-Page";
 import MainPage from "./components/Main-page";
-
-
 import MyNavbar from "./components/Navbar";
 import NewsFeed from "./components/NewsFeed";
 
