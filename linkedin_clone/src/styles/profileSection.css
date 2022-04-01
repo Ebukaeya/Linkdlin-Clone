@@ -12,6 +12,14 @@
   border-radius: 2% 2% 0 0;
   position: relative;
 }
+label.uploadLabel{
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  cursor: pointer;
+  
+}
 
 .camera {
   position: absolute;
@@ -27,6 +35,10 @@
   color: #0a66c2;
 }
 
+.camera>input{
+  
+ display: none;
+}
 .profileContentWrapper {
   padding: 20px;
 }

@@ -102,38 +102,40 @@ const MyNavbar = () => {
             <p style={{ marginBottom: "0px" }}>Notification</p>
           </div>
 
-          <div className="outer-div">
-            <div className="picture">
-              <img
-                className="photo"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l28uBsuk_0csHSUxzCZgDwAAAA%26pid%3DApi&f=1"
-                alt=""
-              />
+         <Link to={"/profile"}>
+            <div className="outer-div">
+              <div className="picture">
+                <img
+                  className="photo"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l28uBsuk_0csHSUxzCZgDwAAAA%26pid%3DApi&f=1"
+                  alt=""
+                />
+              </div>
+              <div className="wrapper-dropdown">
+                <Dropdown as={ButtonGroup}>
+                  <p
+                    style={{
+                      marginRight: "5px",
+                      fontSize: "x-small",
+                      marginBottom: "0px",
+                    }}
+                  >
+                    Me
+                  </p>
+                  <Dropdown.Toggle split className="dropdown" />
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">
+                      Another action
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">
+                      Something else
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
             </div>
-            <div className="wrapper-dropdown">
-              <Dropdown as={ButtonGroup}>
-                <p
-                  style={{
-                    marginRight: "5px",
-                    fontSize: "x-small",
-                    marginBottom: "0px",
-                  }}
-                >
-                  Me
-                </p>
-                <Dropdown.Toggle split className="dropdown" />
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </div>
+         </Link>
 
           <div className="vertical-line"></div>
           <div className="work">
