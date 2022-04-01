@@ -18,8 +18,21 @@ const MainPage = (props) => {
 
   const updatData = (data) => {
     console.log(data);
-    setData({...props.data, name:data.name,surname:data.surname,email:data.email,title:data.title, bio:data.bio, area:data.area});
-    
+    setData({
+      ...props.data,
+      name: data.name,
+      surname: data.surname,
+      email: data.email,
+      title: data.title,
+      bio: data.bio,
+      area: data.area,
+    });
+  };
+
+  const updateImage = (img) => {
+    setData({ ...props.data, image: img });
+    props.imgaeUpdat(img)
+    console.log(data)
   };
 
   useEffect(() => {
@@ -35,6 +48,7 @@ const MainPage = (props) => {
             <Profile
               controlDisplay={handleDisplayForm}
               data={data ? data : props.data}
+              imageUpload={updateImage}
             />
           </div>
           <div className="right">

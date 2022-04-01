@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Narbar.css";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
@@ -31,17 +32,19 @@ const MyNavbar = () => {
 
         <div className="right-navbar">
           <div className="home">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="   rgb(104, 95, 95)"
-              class="bi bi-house-door-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
-            </svg>
-            <p style={{ marginBottom: "0px" }}>Home</p>
+            <Link to={"/newsfeed"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="   rgb(104, 95, 95)"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+              </svg>
+              <p style={{ marginBottom: "0px" , color:"#212529"}}>Home</p>
+            </Link>
           </div>
           <div className="mynetwork">
             <svg
@@ -99,38 +102,40 @@ const MyNavbar = () => {
             <p style={{ marginBottom: "0px" }}>Notification</p>
           </div>
 
-          <div className="outer-div">
-            <div className="picture">
-              <img
-                className="photo"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l28uBsuk_0csHSUxzCZgDwAAAA%26pid%3DApi&f=1"
-                alt=""
-              />
+         <Link to={"/profile"}>
+            <div className="outer-div">
+              <div className="picture">
+                <img
+                  className="photo"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l28uBsuk_0csHSUxzCZgDwAAAA%26pid%3DApi&f=1"
+                  alt=""
+                />
+              </div>
+              <div className="wrapper-dropdown">
+                <Dropdown as={ButtonGroup}>
+                  <p
+                    style={{
+                      marginRight: "5px",
+                      fontSize: "x-small",
+                      marginBottom: "0px",
+                    }}
+                  >
+                    Me
+                  </p>
+                  <Dropdown.Toggle split className="dropdown" />
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">
+                      Another action
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">
+                      Something else
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
             </div>
-            <div className="wrapper-dropdown">
-              <Dropdown as={ButtonGroup}>
-                <p
-                  style={{
-                    marginRight: "5px",
-                    fontSize: "x-small",
-                    marginBottom: "0px",
-                  }}
-                >
-                  Me
-                </p>
-                <Dropdown.Toggle split className="dropdown" />
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </div>
+         </Link>
 
           <div className="vertical-line"></div>
           <div className="work">

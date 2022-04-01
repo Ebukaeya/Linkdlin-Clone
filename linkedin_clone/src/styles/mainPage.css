@@ -12,14 +12,25 @@ body{
       margin:  20px 20vw 20px 20vw;
       background-color: #F3F2EF;
       min-height: 100px;
-      width: 60vw;
+     
       
+  }
+
+  @media screen and (max-width: 1635px) {
+    .mainContainer {
+      margin:  20px 10vw 20px 13vw;
+    }
+    .Wrapper-navbar {
+      margin: 0px 10vw 0px 13vw !important;
+    }
   }
   .wrapperFlex{
       display: flex;
       width: 100%;
       gap: 10px;
      padding: 10px 3px;
+     
+     
   }
  /*  .wrapperFlex>div:first-of-type{
       min-height: 50px;
