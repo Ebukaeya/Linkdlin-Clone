@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/Narbar.css";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
-const MyNavbar = () => {
+const MyNavbar = ({data}) => {
   return (
     <div className="navbar-container">
       <div className="Wrapper-navbar">
@@ -107,7 +107,7 @@ const MyNavbar = () => {
               <div className="picture">
                 <img
                   className="photo"
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l28uBsuk_0csHSUxzCZgDwAAAA%26pid%3DApi&f=1"
+                  src={data.image}
                   alt=""
                 />
               </div>

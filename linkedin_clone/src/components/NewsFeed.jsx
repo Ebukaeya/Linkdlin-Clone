@@ -6,6 +6,7 @@ import PostFeed from "./PostFeed";
 import Posts from "./Posts";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SideCardLeft from "./SideCardLeft"
 
 const NewsFeed = ({ data }) => {
   const navigate = useNavigate();
@@ -46,7 +47,9 @@ const NewsFeed = ({ data }) => {
       <div className="mainContainer">
         <div className="wrapperFlex">
           <div className="left leftNewsFeed">
-            <div className="leftSideBar"></div>
+            <div className="leftSideBar">
+              <SideCardLeft/>
+            </div>
             <div className="newsfeedSection">
               <div>
                 <div className="postWrapperDiv">

@@ -24,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <MyNavbar />
+        <MyNavbar data={data} />
         <Routes>
           <Route path="/profile" element={<MainPage data={data} imgaeUpdat={updatImage} />} />
           <Route path="/profile/:id" element={<MainPage data={data} />} />

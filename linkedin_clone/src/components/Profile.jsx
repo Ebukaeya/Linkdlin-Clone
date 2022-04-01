@@ -170,7 +170,7 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
                     {" "}
                     Share that you're hiring
                   </span>{" "}
-                  <span> and attract qualified</span>
+                  <span> and attract </span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
