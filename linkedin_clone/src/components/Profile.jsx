@@ -1,6 +1,6 @@
 import "../styles/profileSection.css";
 import { useState } from "react";
-const Profile = ({ controlDisplay, data, imageUpload }) => {
+const Profile = ({ controlDisplay, data, imageUpload, profile }) => {
   const [image, setImage] = useState(null);
 
   const openDisplay = () => {
@@ -11,7 +11,7 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
     let profile = e.target.files[0];
 
     /* post image as a file in a formData */
-    postImage(profile,data._id, data.token)
+    postImage(profile, data._id, data.token);
     /* read and display image */
 
     if (profile) {
@@ -33,20 +33,20 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
 
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          id +"/picture",
-          {
-            body: formData,
-              headers: {
-                Authorization:
-                "Bearer " + token,              },
-              method: "POST"}
-          
+        "https://striveschool-api.herokuapp.com/api/profile/" + id + "/picture",
+        {
+          body: formData,
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+          method: "POST",
+        }
       );
-      response.ok ? alert("Image uploaded successfully"): console.log("there was an issue, relogin");
-    }
-     catch (error) {
-      alert("Upload not successfully")
+      response.ok
+        ? alert("Image uploaded successfully")
+        : console.log("there was an issue, relogin");
+    } catch (error) {
+      alert("Upload not successfully");
     }
   };
 
@@ -54,27 +54,29 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
     <>
       <div className="profileSection">
         <div className="coverPicture">
-          <div className="camera">
-            {" "}
-            <label for="uploadProfileImage" className="uploadLabel">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-camera-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
-              </svg>
-            </label>
-            <input
-              onChange={(e) => handleimageupload(e)}
-              id="uploadProfileImage"
-              type="file"
-            />
-          </div>
+          {profile && (
+            <div className="camera">
+              {" "}
+              <label for="uploadProfileImage" className="uploadLabel">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-camera-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                  <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
+                </svg>
+              </label>
+              <input
+                onChange={(e) => handleimageupload(e)}
+                id="uploadProfileImage"
+                type="file"
+              />
+            </div>
+          )}
         </div>
         <div className="profileContentWrapper">
           <div className="profilePictureDivFlexContainer">
@@ -93,7 +95,7 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
               </div>
             </div>
             {/* div for edit button */}
-            <div>
+           { profile && <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -105,7 +107,7 @@ const Profile = ({ controlDisplay, data, imageUpload }) => {
               >
                 <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
               </svg>
-            </div>
+            </div>}
           </div>
           {/* name and profile content section */}
           <div className="proflieContent">

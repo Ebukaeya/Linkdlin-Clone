@@ -48,7 +48,7 @@ const NewsFeed = ({ data }) => {
         <div className="wrapperFlex">
           <div className="left leftNewsFeed">
             <div className="leftSideBar">
-              <SideCardLeft/>
+              <SideCardLeft data={data}/>
             </div>
             <div className="newsfeedSection">
               <div>
@@ -144,12 +144,13 @@ const NewsFeed = ({ data }) => {
               </div>
 
               {/* <Posts  name={data.name} title={data.title} /> */}
-              {posts && posts.filter(post=>post.image)
-                .slice(0,10).map((post) =>
+              {posts && posts.filter(post=>post.image && post.user)
+                .slice(0,14).map((post) =>
                 <Posts
                     data={post}
                   />
                  )}
+
             </div>
           </div>
 

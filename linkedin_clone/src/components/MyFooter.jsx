@@ -13,8 +13,8 @@ const MyFooter = () => {
         className="d-flex align-items-center pl-3 "
         style={{ color: "blue" }}
       >
-        <h1 className="my-0">Linked</h1>
-        <BsLinkedin className="footer-logo" />
+        <h1 style={{color:"#0A66C2"}} className="my-0">Linked</h1>
+        <BsLinkedin color="#0A66C2" className="footer-logo" />
       </Row>
       <Row>
         <Col xs={6}>

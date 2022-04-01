@@ -11,11 +11,16 @@ import ExperienceList from "./ExperienceList";
 
 const MainPage = (props) => {
   const [displayForm, setDisplayForm] = useState(false);
-  
+  const [me, setMe] = useState(true);
 
   const params = useParams();
 
+  console.log(params)
+
   const userId = params.id;
+
+  /* check if am in my profile */
+  /* userId && setMe(false) */
 
   const [data, setData] = useState();
 
@@ -38,11 +43,26 @@ const MainPage = (props) => {
 
   const updateImage = (img) => {
     setData({ ...props.data, image: img });
-    props.imgaeUpdat(img)
-    console.log(data)
+    props.imgaeUpdat(img);
+    console.log(data);
   };
 
   useEffect(() => {
+    console.log(me)
+   
+    console.log(me)
+  }, []);
+
+  useEffect(() => {
+
+    if(userId){
+      setMe(false)
+    }else{
+      setMe(true);
+      setData(props.data)
+    }
+
+       
     fetchUser();
   }, [userId]);
 
@@ -60,7 +80,8 @@ const MainPage = (props) => {
       );
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
+        /* console.log(data); */
+
         setData(data);
       } else {
         alert("not successful");
@@ -78,6 +99,7 @@ const MainPage = (props) => {
               controlDisplay={handleDisplayForm}
               data={data ? data : props.data}
               imageUpload={updateImage}
+              profile={me}
             />
             <ExperienceList userId={userId} />
           </div>

@@ -3,14 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { BsFillBookmarksFill } from "react-icons/bs";
 
-const SideCardLeft = () => {
+const SideCardLeft = ({data}) => {
   const [userData, setUserData] = useState({});
 
   const params = useParams();
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetchData();
-  }, []);
+  }, []); */
 
   const fetchData = async () => {
     let user = params.userId ? params.userId : "me";
@@ -35,52 +35,36 @@ const SideCardLeft = () => {
       console.log(error);
     }
   };
-  return (
-    <Container className="Gbemi-container mt-4 py-0">
-      <Row>
-        <Col>
-          <center className="Gbemi-division mt-2">
-            <img
-              className="Gbemi-image2"
-              src={
-                userData.image
-                  ? userData.image
-                  : require("../assets/strive-logo.jpeg")
-              }
-              alt="profile pics"
-            />
-          </center>
+  return <div className="leftsidecontainerwrapper">
+      <div></div>
+      <div>
+        <div className="sidebarImageDIv">
+          <img src={data.image}/>
+        </div>
+      </div>
+      <div className="sidebartitleText">
+      <div>
+      <p>{data.name }{" "}{data.surname}</p>
+      </div>
+      <p>
+        {data.title}
+      </p>
+      </div>
+      <hr></hr>
 
-          <Link to={"/me"}>
-            <center className="text-dark Gbemi-h6">
-              {userData.name} {""} {userData.surname}
-            </center>
-          </Link>
-          <center className="text-muted mb-3 Gbemi-font">
-            {userData.title}
-          </center>
-          <hr />
-          <p className="d-flex mb-0">
-            <span className="d-inline-block gbemi-span">Connection</span>
-            <span className="d-inline-block gbemi-span ml-auto">1</span>
-          </p>
-          <h6 className="Gbemi-h6-2">Grow your network</h6>
-          <hr />
-          <p className="text-muted mb-0 Gbemi-font">
-            Access exclusive tools & insights
-          </p>
-          <p className="Gbemi-h6-2 my-0 mb-2 ">Try Premium for free</p>
-
-          <div
-            className="text-dark border-top py-2"
-            style={{ cursor: "pointer", fontSize: "0.9rem", fontWeight: "600" }}
-          >
-            <BsFillBookmarksFill /> Manage posts
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  );
+      <div className="sideBarWhoviewedMe">
+        <div>
+          <p>Who viewed your profile</p>
+          <p>15</p>
+        </div>
+        <div>
+          <p>Views of your post</p>
+          <p>155</p>
+        </div>
+        
+      </div>
+      <hr></hr>
+  </div>;
 };
 
 export default SideCardLeft;

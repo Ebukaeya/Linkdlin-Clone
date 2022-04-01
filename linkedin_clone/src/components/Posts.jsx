@@ -2,16 +2,13 @@ import { Component } from "react";
 
 class Posts extends Component {
  
-
   
 
   render() {
-     /*  let post = this.props.data
-      let name = this.props.name
-      let title = this.props.title */
      
+
       let{data} = this.props
-      console.log(data.user)
+      console.log(data.user.name)
     return (
       <>
         <div className="postWrapperDivnewsfeed">
@@ -19,14 +16,14 @@ class Posts extends Component {
          
               <div>
                 <div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU"/>
+                    <img src={data.user.image}/>
                 </div>
                 <div>
-                  <p>{data.username}</p>
-                  <p>{data._id}</p>
+                  <p>{data.user.name}</p>
+                  <p style={{color:"gray"}}>{data.user.title}</p>
                   <p>
-                    <span>{data.createdAt}</span>
-                    <span>edited</span>
+                    <span>{data.createdAt.slice(0,10)}</span>
+                    <span style={{color:"blue"}}>edited</span>
                   </p>
                 </div>
                 <div>...</div>
@@ -37,7 +34,7 @@ class Posts extends Component {
               </div>
          
           <div className="imgDivPostImage">
-                <img src={data.image} />
+                <img src={data.image } />
             </div>
 
             <div className="deleteEditPost">
