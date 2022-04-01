@@ -21,7 +21,7 @@ function SingleExperienceCard({ data }) {
             <h5 className="mb-0">{data.role}</h5>
             <div>{data.company}</div>
             <div className="text-secondary">
-              {data.startDate.slice(0, 10)} -  {data.endDate !== null ? data.endDate.slice(0, 10) : "present"}
+              {data.startDate.slice(0, 10)} -  {" "}{data.endDate !== undefined ? data.endDate.slice(0, 10) : "present"}
             </div>
             <div className="text-secondary">{data.area}</div>
             <p className="mt-2 px-0">{data.description}</p>

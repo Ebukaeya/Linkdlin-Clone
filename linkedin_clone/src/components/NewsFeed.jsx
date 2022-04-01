@@ -145,7 +145,7 @@ const NewsFeed = ({ data }) => {
 
               {/* <Posts  name={data.name} title={data.title} /> */}
               {posts && posts.filter(post=>post.image && post.user)
-                .slice(0,14).map((post) =>
+                .slice(1,14).map((post) =>
                 <Posts
                     data={post}
                   />
