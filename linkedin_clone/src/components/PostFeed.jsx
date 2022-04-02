@@ -5,8 +5,6 @@ const PostFeed = ({ closeDisplay, data }) => {
     text: "",
   });
 
-
-
   const [file, setFile] = useState(null);
 
   const [enablePostButton, setEnablePostButton] = useState(false);
@@ -23,8 +21,7 @@ const PostFeed = ({ closeDisplay, data }) => {
           method: "POST",
           body: JSON.stringify(post),
           headers: {
-            Authorization:
-              "Bearer " + data.token,
+            Authorization: "Bearer " + data.token,
             "Content-type": "application/json",
           },
         }
@@ -39,8 +36,8 @@ const PostFeed = ({ closeDisplay, data }) => {
             {
               body: formData,
               headers: {
-                Authorization:
-                "Bearer " + data.token,              },
+                Authorization: "Bearer " + data.token,
+              },
               method: "POST",
             }
           );
