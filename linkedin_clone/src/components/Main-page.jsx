@@ -100,7 +100,7 @@ const MainPage = (props) => {
               imageUpload={updateImage}
               profile={me}
             />
-            <ExperienceList userId={userId} />
+            <ExperienceList />
           </div>
           <div className="right">
             {/* all components on the left */}

@@ -153,7 +153,7 @@ const NewsFeed = ({ data }) => {
 
           <div className="right">
             <MySidebarEdit />
-            {/* <MySideBarList /> */}
+            <MySideBarList />
           </div>
         </div>
       </div>
