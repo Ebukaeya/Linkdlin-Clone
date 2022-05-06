@@ -45,7 +45,7 @@ const MyNavbar = ({ data }) => {
 
         <div className="right-navbar">
           <div className="home">
-            <Link to={"/newsfeed"}>
+            <Link to={`/newsfeed/${data._id}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

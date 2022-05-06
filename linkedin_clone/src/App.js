@@ -28,7 +28,7 @@ function App() {
           <Route path="/profile/:id/:username" element={<MainPage data={data} />} />
           {/* <Route path="/profile/" element={<MainPage data={data} />} /> */}
           <Route path="/" element={<LoginPage functionData={updateData} />} />
-          <Route   path="/newsfeed"      element={<NewsFeed data={data}/>} />
+          <Route   path="/newsfeed/:id"      element={<NewsFeed data={data}/>} />
           <Route   path="*"      element={<div>404</div>} />
         </Routes>
 

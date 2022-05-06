@@ -6,7 +6,7 @@ import Profile from "./Profile";
 import MySidebarEdit from "./MySideBarEdit";
 import MySideBarList from "./MySideBarList";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ExperienceList from "./ExperienceList";
 
 const MainPage = (props) => {
@@ -15,7 +15,7 @@ const MainPage = (props) => {
   const [data, setData] = useState();
 
   const params = useParams();
-
+  const navigate = useNavigate();
 
   const userId = params.id;
   const isMyProfile = params.me;
@@ -30,13 +30,14 @@ const MainPage = (props) => {
       setMe(false);
       /*  setData(props.data); */
     }
-    fetchUser();
+    console.log(userId);
+    userId ? fetchUser() : navigate("/");
   }, []);
 
   const fetchUser = async () => {
-    if ((userId)) {
+    if (userId) {
       let response = await fetch(
-        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" +  userId ,
+        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" + userId,
         {
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +49,7 @@ const MainPage = (props) => {
         /* console.log(data); */
 
         setData(data);
-        props.functionData(data)
+        props.functionData(data);
       } else {
         alert("not successful");
       }
@@ -58,7 +59,6 @@ const MainPage = (props) => {
   const updateImage = (img) => {
     setData({ ...data, image: img });
     props.imgaeUpdat(img);
-    
   };
 
   const handleDisplayForm = (display) => {

@@ -1,5 +1,7 @@
+
+
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 const { useState } = require("react");
 
 const LoginPage = ({ functionData }) => {

@@ -1,13 +1,20 @@
 import { Component } from "react";
 
 class Posts extends Component {
+
+
  
-  
+   handleDelete = async()=>{
+     let res = await fetch("https://linkedin-clone-api-feb22.herokuapp.com/post/" + this.props.data._id,{
+       method: "delete"
+     })
+     if(res.ok){alert("Your post is deleted")}else alert("post not found")
+  }
 
   render() {
      
 
-      let{data} = this.props
+    let{data,userId} = this.props
       console.log(data.profile.name)
     return (
       <>
@@ -36,11 +43,11 @@ class Posts extends Component {
          {data.image && <div className="imgDivPostImage">
                 <img src={data.image } />
             </div>}
-
-            <div className="deleteEditPost">
+         
+          { userId ===data.profile._id &&  <div className="deleteEditPost">
                 <button>Edit</button>
-                <button>Delete</button>
-            </div>
+                <button onClick={this.handleDelete}>Delete</button>
+            </div>}
         </div>
       </>
     );
