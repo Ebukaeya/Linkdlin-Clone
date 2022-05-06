@@ -16,7 +16,6 @@ const MainPage = (props) => {
 
   const params = useParams();
 
-
   const userId = params.id;
   const isMyProfile = params.me;
 
@@ -31,12 +30,12 @@ const MainPage = (props) => {
       /*  setData(props.data); */
     }
     fetchUser();
-  }, []);
+  }, [userId]);
 
   const fetchUser = async () => {
-    if ((userId)) {
+    if (userId) {
       let response = await fetch(
-        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" +  userId ,
+        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" + userId,
         {
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +47,7 @@ const MainPage = (props) => {
         /* console.log(data); */
 
         setData(data);
-        props.functionData(data)
+        props.functionData(data);
       } else {
         alert("not successful");
       }
@@ -58,7 +57,6 @@ const MainPage = (props) => {
   const updateImage = (img) => {
     setData({ ...data, image: img });
     props.imgaeUpdat(img);
-    
   };
 
   const handleDisplayForm = (display) => {
@@ -100,7 +98,7 @@ const MainPage = (props) => {
               imageUpload={updateImage}
               profile={me}
             />
-            <ExperienceList userId={userId} />
+            <ExperienceList />
           </div>
           <div className="right">
             {/* all components on the left */}

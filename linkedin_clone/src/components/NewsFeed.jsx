@@ -6,7 +6,7 @@ import PostFeed from "./PostFeed";
 import Posts from "./Posts";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SideCardLeft from "./SideCardLeft"
+import SideCardLeft from "./SideCardLeft";
 
 const NewsFeed = ({ data }) => {
   const navigate = useNavigate();
@@ -20,14 +20,11 @@ const NewsFeed = ({ data }) => {
   }, []);
 
   const fetchData = async () => {
-    
     try {
       let response = await fetch(
         "https://linkedin-clone-api-feb22.herokuapp.com/post",
         {
-          headers: {
-          
-          },
+          headers: {},
         }
       );
 
@@ -37,7 +34,7 @@ const NewsFeed = ({ data }) => {
         setPost(post);
       } else {
         alert("You need to login with your token. Click ok to proceed");
-       /*  navigate("/"); */
+        /*  navigate("/"); */
       }
     } catch (error) {}
   };
@@ -48,7 +45,7 @@ const NewsFeed = ({ data }) => {
         <div className="wrapperFlex">
           <div className="left leftNewsFeed">
             <div className="leftSideBar">
-              <SideCardLeft data={data}/>
+              <SideCardLeft data={data} />
             </div>
             <div className="newsfeedSection">
               <div>
@@ -142,21 +139,19 @@ const NewsFeed = ({ data }) => {
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg>
               </div>
-{/* <Posts/> */}
+              {/* <Posts/> */}
               {/* <Posts  name={data.name} title={data.title} /> */}
-              {posts && posts.filter(post=> post.profile)
-                .slice(-10,).map((post) =>
-                <Posts
-                    data={post}
-                  />
-                 )}
-
+              {posts &&
+                posts
+                  .filter((post) => post.profile)
+                  .slice(-10)
+                  .map((post) => <Posts data={post} />)}
             </div>
           </div>
 
           <div className="right">
             <MySidebarEdit />
-            {/* <MySideBarList /> */}
+            <MySideBarList />
           </div>
         </div>
       </div>
@@ -169,9 +164,11 @@ const NewsFeed = ({ data }) => {
 
 export default NewsFeed;
 
- {/* <Posts
+{
+  /* <Posts
                     key={post._id}
                     data={post.text}
                     name={data.name}
                     title={data.title}
-                  /> */}
+                  /> */
+}

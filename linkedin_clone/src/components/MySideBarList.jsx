@@ -7,27 +7,25 @@ const MySideBarList = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => fetchedData(), []);
-
+  let randomArray = [];
   const fetchedData = async () => {
-    let randomArray = [];
-
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
+        "https://linkedin-clone-api-feb22.herokuapp.com/profile",
         {
+          method: "GET",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQzMzBhNWRhMTNhZjAwMTUyYzFjNjciLCJpYXQiOjE2NDg1NzA1MzQsImV4cCI6MTY0OTc4MDEzNH0.I9nECqsO8I-yDSTS2Mqpftc9JQc4P94P-LYnYKzT64g",
+            "Content-Type": "application/json",
           },
         }
       );
       if (response.ok) {
-        
         let data = await response.json();
-        
+
+        console.log(data);
 
         for (let i = 0; i < 5; i++) {
-          let x = Math.floor(Math.random() * 100);
+          let x = Math.floor(Math.random() * data.length);
           randomArray.push(data[x]);
         }
 
@@ -39,7 +37,7 @@ const MySideBarList = () => {
       console.log(error);
     }
   };
-
+  console.log(profile);
   return (
     <div className="Gbemi-container ">
       <h5 className="my-4 py-3">People you may know</h5>
