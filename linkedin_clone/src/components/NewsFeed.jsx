@@ -17,27 +17,27 @@ const NewsFeed = ({ data }) => {
     /* console.log("data change");
     console.log(data.token); */
     fetchData(data.token);
-  }, [data]);
+  }, []);
 
-  const fetchData = async (token) => {
+  const fetchData = async () => {
     
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
+        "https://linkedin-clone-api-feb22.herokuapp.com/post",
         {
           headers: {
-            Authorization: "Bearer " + token,
+          
           },
         }
       );
 
       if (response.ok) {
         let post = await response.json();
-        
+        console.log(post);
         setPost(post);
       } else {
         alert("You need to login with your token. Click ok to proceed");
-        navigate("/");
+       /*  navigate("/"); */
       }
     } catch (error) {}
   };
@@ -142,9 +142,9 @@ const NewsFeed = ({ data }) => {
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg>
               </div>
-
+{/* <Posts/> */}
               {/* <Posts  name={data.name} title={data.title} /> */}
-              {posts && posts.filter(post=>post.image && post.user)
+              {posts && posts.filter(post=> post.profile)
                 .slice(-10,).map((post) =>
                 <Posts
                     data={post}
@@ -156,7 +156,7 @@ const NewsFeed = ({ data }) => {
 
           <div className="right">
             <MySidebarEdit />
-            <MySideBarList />
+            {/* <MySideBarList /> */}
           </div>
         </div>
       </div>

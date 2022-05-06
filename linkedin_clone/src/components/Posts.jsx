@@ -8,7 +8,7 @@ class Posts extends Component {
      
 
       let{data} = this.props
-      console.log(data.user.name)
+      console.log(data.profile.name)
     return (
       <>
         <div className="postWrapperDivnewsfeed">
@@ -16,11 +16,11 @@ class Posts extends Component {
          
               <div>
                 <div>
-                    <img src={data.user.image}/>
+                    <img src={data.profile.image}/>
                 </div>
                 <div>
-                  <p>{data.user.name}</p>
-                  <p style={{color:"gray"}}>{data.user.title}</p>
+                  <p>{data.profile.name}</p>
+                  <p style={{color:"gray"}}>{data.profile.title}</p>
                   <p>
                     <span>{data.createdAt.slice(0,10)}</span>
                     <span style={{color:"blue"}}>edited</span>
@@ -33,9 +33,9 @@ class Posts extends Component {
                 
               </div>
          
-          <div className="imgDivPostImage">
+         {data.image && <div className="imgDivPostImage">
                 <img src={data.image } />
-            </div>
+            </div>}
 
             <div className="deleteEditPost">
                 <button>Edit</button>

@@ -12,69 +12,34 @@ import ExperienceList from "./ExperienceList";
 const MainPage = (props) => {
   const [displayForm, setDisplayForm] = useState(false);
   const [me, setMe] = useState(true);
+  const [data, setData] = useState();
 
   const params = useParams();
 
-  console.log(params)
 
   const userId = params.id;
+  const isMyProfile = params.me;
 
   /* check if am in my profile */
   /* userId && setMe(false) */
 
-  const [data, setData] = useState();
-
-  const handleDisplayForm = (display) => {
-    setDisplayForm(display);
-  };
-
-  const updatData = (data) => {
-    console.log(data);
-    setData({
-      ...props.data,
-      name: data.name,
-      surname: data.surname,
-      email: data.email,
-      title: data.title,
-      bio: data.bio,
-      area: data.area,
-    });
-  };
-
-  const updateImage = (img) => {
-    setData({ ...props.data, image: img });
-    props.imgaeUpdat(img);
-    console.log(data);
-  };
-
   useEffect(() => {
-    console.log(me)
-   
-    console.log(me)
+    if (isMyProfile === "me") {
+      setMe(true);
+    } else {
+      setMe(false);
+      /*  setData(props.data); */
+    }
+    fetchUser();
   }, []);
 
-  useEffect(() => {
-
-    if(userId){
-      setMe(false)
-    }else{
-      setMe(true);
-      setData(props.data)
-    }
-
-       
-    fetchUser();
-  }, [userId]);
-
   const fetchUser = async () => {
-    if (userId) {
+    if ((userId)) {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + userId,
+        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" +  userId ,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQzMzBhNWRhMTNhZjAwMTUyYzFjNjciLCJpYXQiOjE2NDg1NzA1MzQsImV4cCI6MTY0OTc4MDEzNH0.I9nECqsO8I-yDSTS2Mqpftc9JQc4P94P-LYnYKzT64g",
           },
         }
       );
@@ -83,11 +48,45 @@ const MainPage = (props) => {
         /* console.log(data); */
 
         setData(data);
+        props.functionData(data)
       } else {
         alert("not successful");
       }
     }
   };
+
+  const updateImage = (img) => {
+    setData({ ...data, image: img });
+    props.imgaeUpdat(img);
+    
+  };
+
+  const handleDisplayForm = (display) => {
+    setDisplayForm(display);
+  };
+
+  const updatData = (updateddata) => {
+    console.log(updateddata);
+    setData({
+      ...data,
+      name: updateddata.name,
+      surname: updateddata.surname,
+      email: updateddata.email,
+      title: updateddata.title,
+      bio: updateddata.bio,
+      area: updateddata.area,
+    });
+  };
+
+  /*  useEffect(() => {
+    if (userId) {
+      setMe(false);
+    } else {
+      setMe(true);
+      setData(props.data);
+    }
+  }, [userId]); */
+
   return (
     <>
       <div className="mainContainer">

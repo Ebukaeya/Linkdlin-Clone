@@ -3,6 +3,7 @@ import "../styles/Narbar.css";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
 const MyNavbar = ({ data }) => {
+  console.log(data);
   return (
     <div className="navbar-container">
       <div className="Wrapper-navbar">
@@ -114,7 +115,7 @@ const MyNavbar = ({ data }) => {
             <p style={{ marginBottom: "0px" }}>Notification</p>
           </div>
 
-          <Link to={"/profile"}>
+          <Link to={`/profile/${data._id}/me`}>
             <div className="outer-div">
               <div className="picture">
                 <img className="photo" src={data.image} alt="" />

@@ -11,7 +11,7 @@ function App() {
   const [data, setData] = useState({});
 
   const updateData = (data) => {
-    setData(data);
+    setData({...data, data});
   };
 
   const updatImage = (img)=>{
@@ -24,8 +24,8 @@ function App() {
       <>
         <MyNavbar data={data} />
         <Routes>
-          <Route path="/profile" element={<MainPage data={data} imgaeUpdat={updatImage} />} />
-          <Route path="/profile/:id" element={<MainPage data={data} />} />
+          <Route path="/profile/:id/:me"  element={<MainPage data={data} functionData={updateData} imgaeUpdat={updatImage} />} />
+          <Route path="/profile/:id/:username" element={<MainPage data={data} />} />
           {/* <Route path="/profile/" element={<MainPage data={data} />} /> */}
           <Route path="/" element={<LoginPage functionData={updateData} />} />
           <Route   path="/newsfeed"      element={<NewsFeed data={data}/>} />

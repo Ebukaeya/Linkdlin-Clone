@@ -23,21 +23,19 @@ const EditForm = ({ controlDisplay, data, dataUpdat }) => {
     /* make a put request using tje values of the state */
     try {
       let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
+        "https://linkedin-clone-api-feb22.herokuapp.com/profile/" + data._id,
         {
           headers: {
-            Authorization: "Bearer " + data.token,
             "Content-type" : "application/json"
           },
           method: "PUT",
           body: JSON.stringify(formValue)
         }
       );
-     let resData = await res.json()
-     console.log(resData);
-     /*  if (resData.ok) {
+      if (res.status===200) {
+        let resData = await res.json()
         alert("you successfully updated profile");
-      } */
+      }else {alert("profile was not updated")}
     } catch (error) {
       console.log(error);
     }
