@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { BsFillBookmarksFill } from "react-icons/bs";
 
-const SideCardLeft = ({data}) => {
+const SideCardLeft = ({ data }) => {
   const [userData, setUserData] = useState({});
 
   const params = useParams();
@@ -35,20 +35,21 @@ const SideCardLeft = ({data}) => {
       console.log(error);
     }
   };
-  return <div className="leftsidecontainerwrapper">
+  return (
+    <div className="leftsidecontainerwrapper">
       <div></div>
       <div>
         <div className="sidebarImageDIv">
-          <img src={data.image}/>
+          <img src={data.image} />
         </div>
       </div>
       <div className="sidebartitleText">
-      <div>
-      <p>{data.name }{" "}{data.surname}</p>
-      </div>
-      <p>
-        {data.title}
-      </p>
+        <div>
+          <p>
+            {data.name} {data.surname}
+          </p>
+        </div>
+        <p>{data.title}</p>
       </div>
       <hr></hr>
 
@@ -61,10 +62,10 @@ const SideCardLeft = ({data}) => {
           <p>Views of your post</p>
           <p>155</p>
         </div>
-        
       </div>
       <hr></hr>
-  </div>;
+    </div>
+  );
 };
 
 export default SideCardLeft;
