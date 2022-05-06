@@ -32,7 +32,7 @@ const MainPage = (props) => {
     }
     console.log(userId);
     userId ? fetchUser() : navigate("/");
-  }, []);
+  }, [userId]);
 
   const fetchUser = async () => {
     if (userId) {
