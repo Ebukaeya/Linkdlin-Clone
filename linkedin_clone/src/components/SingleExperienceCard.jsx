@@ -2,7 +2,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { BsPencilSquare } from "react-icons/bs";
 
 function SingleExperienceCard({ data }) {
-  console.log(data);
+  console.log(data.role);
   return (
     <>
       <Container className="mb-3 border-bottom">

@@ -4,14 +4,12 @@ import { useParams } from "react-router-dom";
 import SingleExperienceCard from "./SingleExperienceCard";
 import { BsPlus, BsPencil } from "react-icons/bs";
 
-const ExperienceList = ({ userId }) => {
-  const userId1 = userId ? userId : "me";
+const ExperienceList = ({ data }) => {
+  const userId1 = data ? data : "me";
 
   console.log(userId1);
 
   const params = useParams();
-
-  
 
   const [lgShow, setLgShow] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -33,7 +31,7 @@ const ExperienceList = ({ userId }) => {
 
   useEffect(() => {
     fetchedExperience();
-  }, [userId1]);
+  }, []);
 
   const fetchedExperience = async () => {
     try {
@@ -105,14 +103,13 @@ const ExperienceList = ({ userId }) => {
             " "
           ) : (
             <>
-              {!editMode && (
-                <div
-                  className="martin-profile-icon-large mr-4"
-                  //onClick={() => setLgShow(true)}
-                >
-                  <BsPlus />
-                </div>
-              )}
+              <div
+                className="martin-profile-icon-large mr-4"
+                //onClick={() => setLgShow(true)}
+              >
+                <BsPlus />
+              </div>
+
               <div
                 className="martin-profile-icon-large mr-4"
                 onClick={() => setEditMode(!editMode)}
@@ -225,43 +222,13 @@ const ExperienceList = ({ userId }) => {
               }
             />
           </Form.Group>
-          {editMode && (
-            <Form.Group controlId="formUploadExperiencePic" className="mb-3">
-              <Form.Label>Upload file</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
-          )}
-
-          {editMode ? (
-            <>
-              <Button
-                variant="link"
-                type="button"
-                // onClick={() => deleteJob()}
-              >
-                <i className="bi bi-trash3"></i> Delete Job
-              </Button>
-              <Button
-                variant="primary"
-                type="button"
-                className="martin-profile-main-btn mb-2 mb-lg-0"
-                onClick={(e) => {
-                  // uploadExperiencePicture(e);
-                  // handleEdit();
-                }}
-              >
-                Edit Job
-              </Button>
-            </>
-          ) : (
-            <Button
-              variant="primary"
-              type="submit"
-              className="martin-profile-main-btn mb-2 mb-lg-0"
-            >
-              Save
-            </Button>
-          )}
+          <Button
+            variant="primary"
+            type="submit"
+            className="martin-profile-main-btn mb-2 mb-lg-0"
+          >
+            Save
+          </Button>
         </Form>
       </div>
     </>
