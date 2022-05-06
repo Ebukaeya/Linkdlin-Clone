@@ -16,7 +16,8 @@ const NewsFeed = ({ data }) => {
   useEffect(() => {
     /* console.log("data change");
     console.log(data.token); */
-    fetchData(data.token);
+    fetchData();
+    console.log(data);
   }, []);
 
   const fetchData = async () => {
@@ -143,9 +144,9 @@ const NewsFeed = ({ data }) => {
                 </svg>
               </div>
 {/* <Posts/> */}
-              {/* <Posts  name={data.name} title={data.title} /> */}
+              {console.log(posts)}
               {posts && posts.filter(post=> post.profile)
-                .slice(-10,).map((post) =>
+                .slice(-30).map((post) =>
                 <Posts
                     data={post}
                   />

@@ -3,6 +3,8 @@ import { useState } from "react";
 const PostFeed = ({ closeDisplay, data }) => {
   const [post, setPost] = useState({
     text: "",
+    username: data.username,
+    profile: data._id
   });
 
   const [file, setFile] = useState(null);
@@ -12,16 +14,15 @@ const PostFeed = ({ closeDisplay, data }) => {
   const handlePostSubmit = async () => {
     let formData = new FormData();
 
-    formData.append("post", file);
+    formData.append("image", file);
 
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
+        "https://linkedin-clone-api-feb22.herokuapp.com/post/",
         {
           method: "POST",
           body: JSON.stringify(post),
           headers: {
-            Authorization: "Bearer " + data.token,
             "Content-type": "application/json",
           },
         }
@@ -29,22 +30,23 @@ const PostFeed = ({ closeDisplay, data }) => {
       if (response.ok) {
         alert("post is created");
         const data = await response.json();
-        const newPostID = data._id;
-        if (newPostID) {
+     
+        console.log(data);
+        if (data) {
           const respFromImgUpload = await fetch(
-            "https://striveschool-api.herokuapp.com/api/posts/" + newPostID,
+            "https://linkedin-clone-api-feb22.herokuapp.com/post/" + data ,
             {
               body: formData,
               headers: {
-                Authorization: "Bearer " + data.token,
               },
               method: "POST",
             }
           );
           if (respFromImgUpload.ok) {
             alert("Image uploaded");
+            closeDisplay(false)
           }
-        }
+        } 
       }
     } catch (error) {
       console.log(error);
